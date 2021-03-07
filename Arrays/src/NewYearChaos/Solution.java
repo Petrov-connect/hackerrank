@@ -1,25 +1,34 @@
 package NewYearChaos;
+//created by J.M.
 
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+import java.util.Scanner;
 
 public class Solution {
 
-    // Complete the minimumBribes function below.
     static void minimumBribes(int[] q) {
         boolean sorted = false;
-        boolean chaotic =false;
+        boolean chaotic = false;
         int count = 0;
-        while (!chaotic && !sorted) {
-            chaotic=true;
-            sorted=true;
 
+        while (!sorted&&!chaotic) {
+            sorted = true;
+            int i = -1;
+            while (i++ < q.length - 1 && !chaotic) {
+                int countNext = 0;
+                while (q.length - 2 >= i && q[i] > q[i + 1] && !chaotic) {
+                    int current = q[i];
+                    q[i] = q[i + 1];
+                    q[i + 1] = current;
+                    count++;
+                    countNext++;
+                    sorted = false;
+                    chaotic = countNext > 2;
+                    i++;
+                }
+            }
         }
+        System.out.println(chaotic ? "Too chaotic" : count);
+
     }
 
     private static final Scanner scanner = new Scanner(System.in);
