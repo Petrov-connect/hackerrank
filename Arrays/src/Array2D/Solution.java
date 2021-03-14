@@ -1,4 +1,4 @@
-package array2D;
+package Array2D;
 
 import java.io.*;
 import java.util.*;
