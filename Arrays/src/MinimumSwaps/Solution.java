@@ -1,10 +1,6 @@
 package MinimumSwaps;
 
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Solution {
 
@@ -21,23 +17,6 @@ public class Solution {
             }
         }
         return count;
-
-       /* int count = 0;
-        int currentIndex = 0;
-        Set<Integer> set = new HashSet<>();
-        while (currentIndex < arr.length - 1) {
-            int min = Arrays.stream(arr).filter(e -> !set.contains(e)).min().orElse(0);
-            int minIndex = Arrays.stream(arr).boxed().collect(Collectors.toList()).indexOf(min);
-            set.add(min);
-            if (minIndex != currentIndex) {
-                int current = arr[currentIndex];
-                arr[currentIndex] = arr[minIndex];
-                arr[minIndex] = current;
-                count++;
-            }
-            currentIndex++;
-        }
-        return count;*/
     }
 
     private static final Scanner scanner = new Scanner(System.in);
