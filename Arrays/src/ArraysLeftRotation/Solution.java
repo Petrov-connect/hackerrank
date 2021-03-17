@@ -1,4 +1,5 @@
 package ArraysLeftRotation;
+//created by J.M.
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -7,7 +8,6 @@ import java.util.Scanner;
 
 public class Solution {
 
-    // Complete the rotLeft function below.
     static int[] rotLeft(int[] a, int d) {
         for (int i = 0; i < d; i++) {
             int current = a[0];
