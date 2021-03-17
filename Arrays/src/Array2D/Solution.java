@@ -6,7 +6,6 @@ import java.util.*;
 
 public class Solution {
 
-    // Complete the hourglassSum function below.
     static int hourglassSum(int[][] arr) {
         int maxSum = Integer.MIN_VALUE;
         for (int i = 0; i < arr.length - 2; i++) {
