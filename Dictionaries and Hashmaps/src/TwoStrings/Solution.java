@@ -1,4 +1,5 @@
 package TwoStrings;
+//created by J.M.
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
