@@ -10,7 +10,7 @@ import static java.util.stream.Collectors.toList;
 
 public class Solution {
 
-    // Complete the countTriplets function below.
+
     static long countTriplets(List<Long> arr, long r) {
         Map<Long, Long> potential = new HashMap<>();
         Map<Long, Long> counter = new HashMap<>();
@@ -28,7 +28,7 @@ public class Solution {
             }
 
             potential.put(a, potential.getOrDefault(a, 0L) + 1);
-            // Every number can be the start of a triplet.
+
         }
         return count;
     }
