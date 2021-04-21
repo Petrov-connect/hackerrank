@@ -8,21 +8,39 @@ import java.util.Scanner;
 
 public class Solution {
 
-    static long count = 0;
+    private static long countInversions(int[] arr) {
+        int[] aux = arr.clone();
+        return countInversions(arr, 0, arr.length - 1, aux);
+    }
 
-    static long countInversions(int[] arr) {
+    private static long countInversions(int[] arr, int start, int end, int[] aux) {
+        if (start >= end) return 0;
 
-        boolean isNotReady = true;
-        while(isNotReady){
-            isNotReady = false;
-            for (int i = 0; i < arr.length - 1; i++) {
-                if (arr[i] > arr[i + 1]) {
-                    int temp = arr[i];
-                    arr[i] = arr[i + 1];
-                    arr[i + 1] = temp;
-                    isNotReady = true;
-                    count++;
-                }
+        int mid = start + (end - start) / 2;
+
+        long count = 0;
+        count += countInversions(aux, start, mid, arr);
+        count += countInversions(aux, mid + 1, end, arr);
+        count += merge(arr, start, mid, end, aux);
+
+        return count;
+    }
+
+    private static long merge(int[] arr, int start, int mid, int end, int[] aux) {
+        long count = 0;
+        int i = start, j = mid + 1, k = start;
+
+        while (i <= mid || j <= end) {
+
+            if (i > mid) {
+                arr[k++] = aux[j++];
+            } else if (j > end) {
+                arr[k++] = aux[i++];
+            } else if (aux[i] <= aux[j]) {
+                arr[k++] = aux[i++];
+            } else {
+                arr[k++] = aux[j++];
+                count += mid + 1 - i;
             }
         }
 
