@@ -1,23 +1,32 @@
 package MergeSortCountingInversions;
 //created by J.M.
 
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class Solution {
 
-    // Complete the countInversions function below.
+    static long count = 0;
+
     static long countInversions(int[] arr) {
 
+        boolean isNotReady = true;
+        while(isNotReady){
+            isNotReady = false;
+            for (int i = 0; i < arr.length - 1; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    int temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+                    isNotReady = true;
+                    count++;
+                }
+            }
+        }
 
-
-
-return 0;
+        return count;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
