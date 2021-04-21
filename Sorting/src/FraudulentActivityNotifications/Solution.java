@@ -1,38 +1,39 @@
 package FraudulentActivityNotifications;
 //created by J.M.
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Solution {
 
     static int activityNotifications(int[] expenditure, int d) {
-        int notifications = 0;
 
-        List<Integer> temp = IntStream.of(expenditure).limit(d).boxed().sorted().collect(Collectors.toList());
+        int notifications = 0;
+        List<Integer> daysValues = Arrays.stream(expenditure).limit(d).boxed().sorted().collect(Collectors.toList());
 
         for (int i = d; i < expenditure.length; i++) {
 
             double median = d % 2 != 0
-                    ? temp.get(d/2)
-                    : (temp.get(d/2) + temp.get((d/2) - 1)) / 2.0;
+                    ? daysValues.get(d / 2)
+                    : (daysValues.get(d / 2) + daysValues.get((d / 2) - 1)) / 2.0;
 
             if (expenditure[i] >= median * 2) {
                 notifications++;
             }
-            temp.remove(Collections.binarySearch(temp, expenditure[i - d]));
-            int tempIndex = Collections.binarySearch(temp, expenditure[i]);
-            if (tempIndex < 0) {
-                tempIndex = (-1 * tempIndex) -1;
+            daysValues.remove(Collections.binarySearch(daysValues, expenditure[i - d]));
+            int newValueIndex = Collections.binarySearch(daysValues, expenditure[i]);
+            if (newValueIndex < 0) {
+                newValueIndex = (-1 * newValueIndex) - 1;
             }
-            temp.add(tempIndex, expenditure[i]);
+            daysValues.add(newValueIndex, expenditure[i]);
         }
 
         return notifications;
     }
+
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
