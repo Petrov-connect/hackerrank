@@ -38,7 +38,7 @@ public class Solution {
         String a = scan.next();
         String b = scan.next();
         scan.close();
-        boolean ret = isAnagram(a, b);
-        System.out.println((ret) ? "Anagrams" : "Not Anagrams");
+        boolean anagram = isAnagram(a, b);
+        System.out.println((anagram) ? "Anagrams" : "Not Anagrams");
     }
 }
