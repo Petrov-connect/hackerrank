@@ -31,27 +31,6 @@ public class Solution {
 
         return true;
     }
-    // OR , but worse time complexity
-
-    /*static boolean isAnagram(String a, String b) {
-
-        if (a.length() != b.length()) {
-            return false;
-        }
-        a=a.toLowerCase();
-        b=b.toLowerCase();
-
-        while(a.length()>0){
-            int index = b.indexOf(a.charAt(a.length()-1));
-            if(index<0){
-                return false;
-            }
-            a = String.valueOf(new StringBuilder(a).deleteCharAt(a.length()-1));
-            b = String.valueOf(new StringBuilder(b).deleteCharAt(index));
-        }
-        return true;
-    }*/
-
 
     public static void main(String[] args) {
 
