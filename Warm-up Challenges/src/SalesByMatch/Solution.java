@@ -1,12 +1,9 @@
 package SalesByMatch;
+//created by J.M.
 
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
 
 public class Solution {
 
@@ -14,6 +11,7 @@ public class Solution {
 
         int count=0;
         Set<Integer>set=new HashSet<>();
+
         for (int i = 0; i < n; i++) {
             if( set.contains(ar[i])){
                 count++;
@@ -27,8 +25,7 @@ public class Solution {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) throws IOException {
-        //BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+    public static void main(String[] args) {
 
         int n = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
@@ -44,11 +41,6 @@ public class Solution {
         }
 
         int result = sockMerchant(n, ar);
-
-        //bufferedWriter.write(String.valueOf(result));
-        //bufferedWriter.newLine();
-
-        //bufferedWriter.close();
 
         scanner.close();
         System.out.println(result);
