@@ -1,31 +1,22 @@
 package RepeatedString;
+//created by J.M.
 
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class Solution {
 
-    // Complete the repeatedString function below.
     static long repeatedString(String s, long n) {
-        long count = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == 'a') {
-                count++;
-            }
-        }
+
+        long count = IntStream.range(0, s.length()).filter(i -> s.charAt(i) == 'a').count();
         long repeat = n / s.length();
         long left = n % s.length();
         count *= repeat;
-        for (int i = 0; i < left; i++) {
-            if (s.charAt(i) == 'a') {
-                count++;
-            }
-        }
+
+        count += IntStream.iterate(0, i -> i < left, i -> i + 1).filter(i -> s.charAt(i) == 'a').count();
         return count;
     }
 
