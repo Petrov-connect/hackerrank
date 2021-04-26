@@ -9,6 +9,7 @@ import java.util.stream.IntStream;
 
 public class Solution {
 
+
     static long repeatedString(String s, long n) {
 
         long count = IntStream.range(0, s.length()).filter(i -> s.charAt(i) == 'a').count();
